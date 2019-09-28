@@ -8,6 +8,8 @@ base = $LDAP_BASE
 scope = subtree
 auth_bind = yes
 auth_bind_userdn = $LDAP_BIND_TEMPLATE
+pass_filter = (&(objectClass=inetOrgPerson)(uid=%u))
+pass_attrs = uid=user
 EOM
 
 dovecot -F

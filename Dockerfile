@@ -3,7 +3,7 @@ LABEL maintainer="jeff@reverentengineer.com"
 ENV TLS_CERT /etc/ssl/dovecot/server.pem
 ENV TLS_KEY /etc/ssl/dovecot/server.key
 ENV LDAP_HOST openldap
-ENV LDAP_BIND_TEMPLATE "uid=%u,ou=people,dc=example,dc=org"
+ENV LDAP_BIND_TEMPLATE "cn=%u,ou=people,dc=example,dc=org"
 RUN apk update && \
   apk add --no-cache dovecot dovecot-ldap && \
   mkdir -p /var/lib/mail && \
