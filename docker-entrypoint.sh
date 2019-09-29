@@ -10,6 +10,8 @@ auth_bind = yes
 auth_bind_userdn = $LDAP_BIND_TEMPLATE
 pass_filter = (&(objectClass=inetOrgPerson)(uid=%u))
 pass_attrs = uid=user
+dn = $LDAP_DN 
+dn_pass = $LDAP_DNPASS
 EOM
 
 dovecot -F

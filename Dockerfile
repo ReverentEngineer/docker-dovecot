@@ -1,11 +1,11 @@
-FROM alpine
+FROM alpine:3.10
 LABEL maintainer="jeff@reverentengineer.com"
 ENV TLS_CERT /etc/ssl/dovecot/server.pem
 ENV TLS_KEY /etc/ssl/dovecot/server.key
 ENV LDAP_HOST openldap
 ENV LDAP_BIND_TEMPLATE "cn=%u,ou=people,dc=example,dc=org"
 RUN apk update && \
-  apk add --no-cache dovecot dovecot-ldap && \
+  apk add --no-cache dovecot dovecot-ldap dovecot-lmtpd && \
   mkdir -p /var/lib/mail && \
   addgroup -S vmail &&\
   adduser -h /var/lib/mail -S -G vmail vmail
